@@ -1,0 +1,61 @@
+2025-02-05 14:47:34,722 - INFO - Create text from image and text
+2025-02-05 14:55:30,381 - INFO - Create text from image and text
+2025-02-05 14:55:44,725 - INFO - Successfully create text from image and text
+2025-02-05 14:57:08,873 - INFO - Create text from image and text
+2025-02-05 14:57:40,592 - INFO - Successfully create text from image and text
+2025-02-05 14:58:41,785 - INFO - Create text from image and text
+2025-02-05 15:01:37,837 - INFO - Create text from image and text
+2025-02-05 15:01:53,583 - INFO - Successfully create text from image and text
+2025-02-05 15:11:56,377 - INFO - Create text from image and text
+2025-02-05 15:12:04,319 - INFO - Successfully create text from image and text
+2025-02-05 15:14:18,881 - INFO - Create text from image and text
+2025-02-05 15:15:16,666 - INFO - Text to image
+2025-02-05 15:15:30,642 - INFO - Create text from image and text
+2025-02-05 15:15:46,747 - INFO - Successfully create text from image and text
+2025-02-05 15:18:20,470 - INFO - Text to image
+2025-02-05 15:18:33,231 - INFO - Create text from image and text
+2025-02-05 15:18:47,924 - INFO - Successfully create text from image and text
+2025-02-06 10:07:11,305 - INFO - Text to image
+2025-02-06 10:07:45,870 - INFO - Create text from image and text
+2025-02-06 10:08:20,267 - INFO - Successfully create text from image and text
+2025-02-06 10:08:20,267 - INFO - Create caption from image
+2025-02-06 10:08:57,542 - INFO - Successfully create caption from image
+2025-02-06 10:08:57,542 - INFO - Embedding text
+2025-02-06 10:16:48,541 - INFO - Text to image
+2025-02-06 10:17:02,849 - INFO - Create text from image and text
+2025-02-06 10:17:17,781 - INFO - Successfully create text from image and text
+2025-02-06 10:17:17,781 - INFO - Create caption from image
+2025-02-06 10:17:41,127 - INFO - Successfully create caption from image
+2025-02-06 10:17:41,127 - INFO - Embedding text
+2025-02-06 10:18:46,030 - INFO - Text to image
+2025-02-06 10:18:59,617 - INFO - Create text from image and text
+2025-02-06 10:19:13,279 - INFO - Successfully create text from image and text
+2025-02-06 10:19:13,279 - INFO - Create caption from image
+2025-02-06 10:19:19,659 - INFO - Successfully create caption from image
+2025-02-06 10:19:19,659 - INFO - Embedding text
+2025-02-06 10:21:15,763 - INFO - Text to image
+2025-02-06 10:21:29,963 - INFO - Create text from image and text
+2025-02-06 10:21:44,435 - INFO - Successfully create text from image and text
+2025-02-06 10:21:44,435 - INFO - Create caption from image
+2025-02-06 10:21:50,243 - INFO - Successfully create caption from image
+2025-02-06 10:21:50,244 - INFO - Embedding text
+2025-02-06 11:25:35,938 - INFO - Text to image
+2025-02-06 11:25:50,609 - INFO - Create text from image and text
+2025-02-06 11:26:08,726 - INFO - Successfully create text from image and text
+2025-02-06 11:26:08,726 - INFO - Create caption from student image
+2025-02-06 11:26:28,250 - INFO - Successfully create caption from student image
+2025-02-06 11:26:28,252 - INFO - Create caption from teacher image
+2025-02-06 11:26:31,911 - INFO - Successfully create caption from teacher image
+2025-02-06 11:26:31,911 - INFO - Embedding text
+2025-02-06 15:24:48,608 - INFO - Text to image
+2025-02-06 15:25:24,998 - INFO - Create text from image and text
+2025-02-06 15:26:02,205 - INFO - Successfully create text from image and text
+2025-02-06 15:26:02,206 - INFO - Create caption from student image
+2025-02-06 15:41:03,322 - INFO - Text to image
+2025-02-06 15:41:39,517 - INFO - Create text from image and text
+2025-02-06 15:42:35,762 - INFO - Successfully create text from image and text
+2025-02-06 15:42:35,763 - INFO - Create caption from student image
+2025-02-06 15:42:42,604 - INFO - Successfully create caption from student image
+2025-02-06 15:42:42,612 - INFO - Create caption from teacher image
+2025-02-06 15:42:47,625 - INFO - Successfully create caption from teacher image
+2025-02-06 15:42:47,625 - INFO - Embedding text
