@@ -59,3 +59,106 @@
 2025-02-06 15:42:42,612 - INFO - Create caption from teacher image
 2025-02-06 15:42:47,625 - INFO - Successfully create caption from teacher image
 2025-02-06 15:42:47,625 - INFO - Embedding text
+2025-02-06 17:21:35,986 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 17:22:02,036 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 17:22:38,512 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-06 17:26:06,463 - INFO - Text to image
+2025-02-06 17:26:20,051 - INFO - Create text from image and text
+2025-02-06 17:26:53,011 - INFO - Successfully create text from image and text
+2025-02-06 17:26:53,011 - INFO - Create caption from student image
+2025-02-06 17:47:50,597 - INFO - Text to image
+2025-02-06 17:48:19,635 - INFO - Create text from image and text
+2025-02-06 17:48:35,768 - INFO - Successfully create text from image and text
+2025-02-06 17:48:35,769 - INFO - Create caption from student image
+2025-02-06 17:48:58,302 - INFO - Successfully create caption from student image
+2025-02-06 17:48:58,315 - INFO - Create caption from teacher image
+2025-02-06 17:49:01,490 - INFO - Successfully create caption from teacher image
+2025-02-06 17:49:01,490 - INFO - Embedding text
+2025-02-07 09:26:52,255 - INFO - Text to image
+2025-02-07 09:27:35,961 - INFO - Create text from image and text
+2025-02-07 09:28:15,822 - INFO - Successfully create text from image and text
+2025-02-07 09:28:15,822 - INFO - Create caption from student image
+2025-02-07 09:28:20,178 - INFO - Successfully create caption from student image
+2025-02-07 09:28:20,180 - INFO - Create caption from teacher image
+2025-02-07 09:28:24,737 - INFO - Successfully create caption from teacher image
+2025-02-07 09:28:24,737 - INFO - Embedding text
+2025-02-07 09:31:22,709 - INFO - Text to image
+2025-02-07 09:31:35,711 - INFO - Create text from image and text
+2025-02-07 09:31:49,625 - INFO - Successfully create text from image and text
+2025-02-07 09:31:49,625 - INFO - Create caption from student image
+2025-02-07 09:31:54,906 - INFO - Successfully create caption from student image
+2025-02-07 09:31:54,909 - INFO - Create caption from teacher image
+2025-02-07 09:31:59,816 - INFO - Successfully create caption from teacher image
+2025-02-07 09:31:59,817 - INFO - Embedding text
+2025-02-07 09:32:23,209 - INFO - Text to image
+2025-02-07 09:32:36,013 - INFO - Create text from image and text
+2025-02-07 09:32:46,496 - INFO - Successfully create text from image and text
+2025-02-07 09:32:46,496 - INFO - Create caption from student image
+2025-02-07 09:32:52,020 - INFO - Successfully create caption from student image
+2025-02-07 09:32:52,024 - INFO - Create caption from teacher image
+2025-02-07 09:32:55,690 - INFO - Successfully create caption from teacher image
+2025-02-07 09:32:55,690 - INFO - Embedding text
+2025-02-07 09:33:53,380 - INFO - Text to image
+2025-02-07 09:34:06,188 - INFO - Create text from image and text
+2025-02-07 09:34:20,893 - INFO - Successfully create text from image and text
+2025-02-07 09:34:20,893 - INFO - Create caption from student image
+2025-02-07 09:34:26,453 - INFO - Successfully create caption from student image
+2025-02-07 09:34:26,456 - INFO - Create caption from teacher image
+2025-02-07 09:34:31,072 - INFO - Successfully create caption from teacher image
+2025-02-07 09:34:31,072 - INFO - Embedding text
+2025-02-07 09:49:34,656 - INFO - Text to image
+2025-02-07 09:50:09,205 - INFO - Create text from image and text
+2025-02-07 09:50:25,145 - INFO - Successfully create text from image and text
+2025-02-07 09:50:25,145 - INFO - Create caption from student image
+2025-02-07 09:50:30,570 - INFO - Successfully create caption from student image
+2025-02-07 09:50:30,573 - INFO - Create caption from teacher image
+2025-02-07 09:50:34,462 - INFO - Successfully create caption from teacher image
+2025-02-07 09:50:34,462 - INFO - Embedding text
+2025-02-07 10:06:05,235 - INFO - Text to image
+2025-02-07 10:06:20,047 - INFO - Create text from image and text
+2025-02-07 10:06:33,045 - INFO - Successfully create text from image and text
+2025-02-07 10:06:33,045 - INFO - Create caption from student image
+2025-02-07 10:06:38,163 - INFO - Successfully create caption from student image
+2025-02-07 10:06:38,166 - INFO - Create caption from teacher image
+2025-02-07 10:06:42,668 - INFO - Successfully create caption from teacher image
+2025-02-07 10:06:42,668 - INFO - Scoring
+2025-02-07 10:06:44,035 - INFO - Successfully scoring
+2025-02-07 10:06:44,035 - INFO - Feedback
+2025-02-07 10:06:51,067 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-07 10:06:51,077 - INFO - Successfully feedback
+2025-02-07 10:09:24,148 - INFO - Text to image
+2025-02-07 10:09:37,926 - INFO - Create text from image and text
+2025-02-07 10:09:53,722 - INFO - Successfully create text from image and text
+2025-02-07 10:09:53,723 - INFO - Create caption from student image
+2025-02-07 10:09:58,671 - INFO - Successfully create caption from student image
+2025-02-07 10:09:58,673 - INFO - Create caption from teacher image
+2025-02-07 10:10:01,685 - INFO - Successfully create caption from teacher image
+2025-02-07 10:10:01,686 - INFO - Scoring
+2025-02-07 10:10:03,274 - INFO - Successfully scoring
+2025-02-07 10:10:03,274 - INFO - Feedback
+2025-02-07 10:10:08,827 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-07 10:10:08,839 - INFO - Successfully feedback
+2025-02-07 10:37:57,263 - INFO - Text to image
+2025-02-07 10:38:53,674 - INFO - Create text from image and text
+2025-02-07 10:39:24,870 - INFO - Successfully create text from image and text
+2025-02-07 10:39:24,870 - INFO - Create caption from student image
+2025-02-07 10:39:30,301 - INFO - Successfully create caption from student image
+2025-02-07 10:39:30,306 - INFO - Create caption from teacher image
+2025-02-07 10:39:34,733 - INFO - Successfully create caption from teacher image
+2025-02-07 10:39:34,733 - INFO - Scoring
+2025-02-07 10:39:36,153 - INFO - Successfully scoring
+2025-02-07 10:39:36,153 - INFO - Feedback
+2025-02-07 10:39:42,584 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-07 10:39:42,594 - INFO - Successfully feedback
+2025-02-07 14:00:28,058 - INFO - Text to image
+2025-02-07 14:01:00,357 - INFO - Create text from image and text
+2025-02-07 14:01:44,354 - INFO - Successfully create text from image and text
+2025-02-07 14:01:44,354 - INFO - Create caption from student image
+2025-02-07 14:01:49,664 - INFO - Successfully create caption from student image
+2025-02-07 14:01:49,666 - INFO - Create caption from teacher image
+2025-02-07 14:01:53,101 - INFO - Successfully create caption from teacher image
+2025-02-07 14:01:53,101 - INFO - Scoring
+2025-02-07 14:01:54,747 - INFO - Successfully scoring
+2025-02-07 14:01:54,747 - INFO - Feedback
+2025-02-07 14:01:59,463 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-07 14:01:59,475 - INFO - Successfully feedback
