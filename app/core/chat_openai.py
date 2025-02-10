@@ -7,10 +7,10 @@ os.environ["OPENAI_API_KEY"] = "sk-proj-B4L8pBsmK4Q53hzM6u-Cn2XMo5tPlq71jrkN4K_h
 
 llm = ChatOpenAI(
     model="gpt-4o-mini",
-    temperature=0,
+    # temperature=0,
     max_tokens=200,
-    timeout=None,
-    max_retries=2,
+    # timeout=None,
+    # max_retries=2,
 )
 
 
