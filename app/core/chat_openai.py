@@ -18,7 +18,7 @@ def sent_message(prompt):
     messages = [
         (
             "system",
-            "You are a professional stable diffusion prompt engineer.",
+            "You are a professional stable diffusion prompt engineer. Don't return answers with single or double quotes at the beginning and end of the sentence.",
         ),
         ("human", prompt),
     ]

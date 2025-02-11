@@ -37,5 +37,5 @@ class Settings:
     PROMPT_WEIGHT = 0.8
     CAPTION_WEIGHT = 0.1
     PROMPT_CAPTION_WEIGHT = 0.1
-    
+    DOMAIN = 'https://epadmin.physcode.com'
 settings = Settings()

@@ -9,6 +9,9 @@ from app.schemas.prompt_schemas import Generate_prompt
 from app.core.config import settings
 from app.core.utils import call_api
 from app.core.chat_openai import sent_message
+from app.core.utils import save_base64_image, random_filename
+
+
 router = APIRouter()
 
 
@@ -67,7 +70,27 @@ async def generate_prompt(data: Generate_prompt):
     return prompt
 
 @router.post('/generate_image')
-async def generate_image(prompt: str = Form(...)):
+async def generate_image(prompt: str = Form(default='A whimsical and creative image depicting a hybrid creature that is a mix of a waffle and a hippopotamus, basking in a river of melted butter amidst a breakfast-themed landscape. It features the distinctive, bulky body shape of a hippo. However, instead of the usual grey skin, the creature’s body resembles a golden-brown, crispy waffle fresh off the griddle. The skin is textured with the familiar grid pattern of a waffle, each square filled with a glistening sheen of syrup. The environment combines the natural habitat of a hippo with elements of a breakfast table setting, a river of warm, melted butter, with oversized utensils or plates peeking out from the lush, pancake-like foliage in the background, a towering pepper mill standing in for a tree.  As the sun rises in this fantastical world, it casts a warm, buttery glow over the scene. The creature, content in its butter river, lets out a yawn. Nearby, a flock of birds take flight')):
+    settings.logger.info('Start generating image')
     payload = {"prompt": prompt}
     text_to_image_response = await call_api(API_KEY_TEXT2IMAGE, API_URL_TEXT2IMAGE, payload=payload)
-    return text_to_image_response
+    
+    if text_to_image_response.get('status') == 'COMPLETED':
+        try:
+            image_url = f"app/media/{random_filename(extension='png')}"
+            image = text_to_image_response.get('output').get('image_url')
+            save_base64_image(base64_image=image, image_url=image_url)
+            settings.logger.info('Successfully generate image')
+            return {"image_url": settings.DOMAIN + '/'+ image_url}
+        except:
+            raise HTTPException(status_code=400, detail="Error server not image_url in response")
+    elif text_to_image_response.get('status') != 'COMPLETED':
+        raise HTTPException(status_code=400, detail="Error in generating image")
+
+@router.post('/upload_image_base64')
+async def upload_image_base64(image: str = Form(...)):
+    settings.logger.info('Start uploading image')
+    image_url = f"app/media/{random_filename(extension='png')}"
+    save_base64_image(base64_image=image, image_url=image_url)
+    settings.logger.info('Successfully upload image')
+    return {"image_url": settings.DOMAIN + '/'+ image_url}
