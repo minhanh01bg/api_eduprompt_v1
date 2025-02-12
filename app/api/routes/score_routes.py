@@ -57,7 +57,7 @@ async def generate_score_feedback(
     # generate image for student
     try:
         settings.logger.info('Text to image')
-        payload = {"prompt": student_prompt}
+        payload = {"prompt": student_prompt, "label": "student"}
         text_to_image_response = await call_api(API_KEY_TEXT2IMAGE, API_URL_TEXT2IMAGE, payload=payload)
         # print(api_response)
     except:
@@ -67,7 +67,7 @@ async def generate_score_feedback(
     try:
         output_t2img = text_to_image_response.get('output')
         base64_student_image = output_t2img.get('image_url')
-
+        
         image_url = f"app/media/{random_filename(extension='png')}"
         save_base64_image(base64_image=base64_student_image,
                           image_url=image_url)
