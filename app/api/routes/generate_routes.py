@@ -91,19 +91,21 @@ from pydantic import BaseModel
 class ImageUploadRequest(BaseModel):
     images: list[str]
 
+import shutil
 @router.post('/upload_image_base64')
-async def upload_image_base64(request: ImageUploadRequest):
+async def upload_images(images: list[UploadFile] = File(...)):
     settings.logger.info('Start uploading images')
 
     image_urls = []
     try:
-        for base64_image in request.images:
+        for image in images:
             image_path = f"app/media/{random_filename(extension='png')}"
-            save_base64_image(base64_image=base64_image, image_url=image_path)
+            with open(image_path, "wb") as buffer:
+                shutil.copyfileobj(image.file, buffer)
             image_urls.append(f"{settings.DOMAIN}/{image_path}")
-        
+
         settings.logger.info('Successfully uploaded images')
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Error in uploading images: {str(e)}")
-    
+
     return {"image_urls": image_urls}
