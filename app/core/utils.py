@@ -20,9 +20,11 @@ def extract_assistant_response(text):
     return None
 
 import uuid
-
+from datetime import datetime
 def random_filename(extension='png'):
-    return f"{uuid.uuid4().hex}.{extension}"
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+
+    return f"{timestamp}_{uuid.uuid4().hex}.{extension}"
 
 
 import numpy as np

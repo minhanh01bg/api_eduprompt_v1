@@ -87,10 +87,23 @@ async def generate_image(prompt: str = Form(default='A whimsical and creative im
     elif text_to_image_response.get('status') != 'COMPLETED':
         raise HTTPException(status_code=400, detail="Error in generating image")
 
+from pydantic import BaseModel
+class ImageUploadRequest(BaseModel):
+    images: list[str]
+
 @router.post('/upload_image_base64')
-async def upload_image_base64(image: str = Form(...)):
-    settings.logger.info('Start uploading image')
-    image_url = f"app/media/{random_filename(extension='png')}"
-    save_base64_image(base64_image=image, image_url=image_url)
-    settings.logger.info('Successfully upload image')
-    return {"image_url": settings.DOMAIN + '/'+ image_url}
+async def upload_image_base64(request: ImageUploadRequest):
+    settings.logger.info('Start uploading images')
+
+    image_urls = []
+    try:
+        for base64_image in request.images:
+            image_path = f"app/media/{random_filename(extension='png')}"
+            save_base64_image(base64_image=base64_image, image_url=image_path)
+            image_urls.append(f"{settings.DOMAIN}/{image_path}")
+        
+        settings.logger.info('Successfully uploaded images')
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Error in uploading images: {str(e)}")
+    
+    return {"image_urls": image_urls}
