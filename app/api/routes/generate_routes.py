@@ -77,11 +77,9 @@ async def generate_image(prompt: str = Form(default='A whimsical and creative im
     
     if text_to_image_response.get('status') == 'COMPLETED':
         try:
-            image_url = f"app/media/{random_filename(extension='png')}"
-            image = text_to_image_response.get('output').get('image_url')
-            save_base64_image(base64_image=image, image_url=image_url)
+            images = text_to_image_response.get('output').get('image_urls')
             settings.logger.info('Successfully generate image')
-            return {"image_url": settings.DOMAIN + '/'+ image_url}
+            return {"image_urls": images}
         except:
             raise HTTPException(status_code=400, detail="Error server not image_url in response")
     elif text_to_image_response.get('status') != 'COMPLETED':
