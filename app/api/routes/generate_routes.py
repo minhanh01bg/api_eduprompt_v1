@@ -30,6 +30,7 @@ API_KEY_TEXT2IMAGE = 'rpa_7DWIWXV9FLMKPRA01519O44QW7Q0NKR2QYU7RULC12ygum'
 
 @router.post('/generate_prompt',status_code=status.HTTP_200_OK)
 async def generate_prompt(data: Generate_prompt):
+    settings.logger.info(f'Start generating prompt: {Generate_prompt}')
     complexity_instruction = "The lenght cannot be more than 50 tokens.Create a simple and short prompt with minimal details."
     if "Beginner" in data.level:
         complexity_instruction = "The lenght cannot be more than 50 tokens.Create a simple and short prompt with minimal details."
