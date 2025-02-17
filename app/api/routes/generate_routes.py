@@ -80,8 +80,15 @@ async def generate_image(data: Generate_image):
     if text_to_image_response.get('status') == 'COMPLETED':
         try:
             images = text_to_image_response.get('output').get('image_urls')
+            results = []
+            for img in images:
+                file_name = random_filename(extension='png')
+                url = f"{settings.DOMAIN}/app/media/{file_name}"
+                save_base64_image(img, f"app/media/{file_name}")
+                results.append(url)
+
             settings.logger.info('Successfully generate image')
-            return {"image_urls": images}
+            return {"image_urls": results}
         except:
             raise HTTPException(status_code=400, detail="Error server not image_url in response")
     elif text_to_image_response.get('status') != 'COMPLETED':
