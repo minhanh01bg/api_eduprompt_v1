@@ -5,7 +5,7 @@ from app.core.security import check_auth_admin
 import base64
 import io
 from app.schemas.runpod_schemas import APIRequest, RequestBodyPrompt
-from app.schemas.prompt_schemas import Generate_prompt
+from app.schemas.prompt_schemas import Generate_prompt, Generate_image
 from app.core.config import settings
 from app.core.utils import call_api
 from app.core.chat_openai import sent_message
@@ -30,7 +30,7 @@ API_KEY_TEXT2IMAGE = 'rpa_7DWIWXV9FLMKPRA01519O44QW7Q0NKR2QYU7RULC12ygum'
 
 @router.post('/generate_prompt',status_code=status.HTTP_200_OK)
 async def generate_prompt(data: Generate_prompt):
-    settings.logger.info(f'Start generating prompt: {Generate_prompt}')
+    settings.logger.info(f'Start generating prompt: {data}')
     complexity_instruction = "The lenght cannot be more than 50 tokens.Create a simple and short prompt with minimal details."
     if "Beginner" in data.level:
         complexity_instruction = "The lenght cannot be more than 50 tokens.Create a simple and short prompt with minimal details."
@@ -70,10 +70,11 @@ async def generate_prompt(data: Generate_prompt):
     prompt = sent_message(full_prompt)
     return prompt
 
+
 @router.post('/generate_image',status_code=status.HTTP_200_OK)
-async def generate_image(prompt: str = Form(default='A whimsical and creative image depicting a hybrid creature that is a mix of a waffle and a hippopotamus, basking in a river of melted butter amidst a breakfast-themed landscape. It features the distinctive, bulky body shape of a hippo. However, instead of the usual grey skin, the creature’s body resembles a golden-brown, crispy waffle fresh off the griddle. The skin is textured with the familiar grid pattern of a waffle, each square filled with a glistening sheen of syrup. The environment combines the natural habitat of a hippo with elements of a breakfast table setting, a river of warm, melted butter, with oversized utensils or plates peeking out from the lush, pancake-like foliage in the background, a towering pepper mill standing in for a tree.  As the sun rises in this fantastical world, it casts a warm, buttery glow over the scene. The creature, content in its butter river, lets out a yawn. Nearby, a flock of birds take flight')):
+async def generate_image(data: Generate_image):
     settings.logger.info('Start generating image')
-    payload = {"prompt": prompt, "label": "teacher"}
+    payload = {"prompt": data.prompt, "label": "teacher"}
     text_to_image_response = await call_api(API_KEY_TEXT2IMAGE, API_URL_TEXT2IMAGE, payload=payload)
     
     if text_to_image_response.get('status') == 'COMPLETED':
