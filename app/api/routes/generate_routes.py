@@ -1,5 +1,7 @@
+import shutil
+from pydantic import BaseModel
 import re
-from fastapi import APIRouter, Depends, Security, UploadFile, File, Form, HTTPException,status
+from fastapi import APIRouter, Depends, Security, UploadFile, File, Form, HTTPException, status
 from app.schemas import schemas
 from app.core.security import check_auth_admin
 import base64
@@ -28,7 +30,11 @@ API_KEY_ITC = 'rpa_7DWIWXV9FLMKPRA01519O44QW7Q0NKR2QYU7RULC12ygum'
 API_URL_TEXT2IMAGE = 'https://api.runpod.ai/v2/7wt9c65qtmm1uj/runsync'
 API_KEY_TEXT2IMAGE = 'rpa_7DWIWXV9FLMKPRA01519O44QW7Q0NKR2QYU7RULC12ygum'
 
-@router.post('/generate_prompt',status_code=status.HTTP_200_OK)
+API_URL_TEXT2IMAGE2 = 'https://api.runpod.ai/v2/pyrat8v5lumbfb/runsync'
+API_KEY_TEXT2IMAGE2 = 'O461H84OAYQK5UG9K5C24AR7XHMDRDEFSXCW4B5T'
+
+
+@router.post('/generate_prompt', status_code=status.HTTP_200_OK)
 async def generate_prompt(data: Generate_prompt):
     settings.logger.info(f'Start generating prompt: {data}')
     complexity_instruction = "The lenght cannot be more than 50 tokens.Create a simple and short prompt with minimal details."
@@ -71,12 +77,17 @@ async def generate_prompt(data: Generate_prompt):
     return prompt
 
 
-@router.post('/generate_image',status_code=status.HTTP_200_OK)
+@router.post('/generate_image', status_code=status.HTTP_200_OK)
 async def generate_image(data: Generate_image):
     settings.logger.info('Start generating image')
-    payload = {"prompt": data.prompt, "label": "teacher"}
+    payload = {"prompt": data.prompt,
+               "label": "teacher",
+               "width": 1024,
+               "height": 1024,
+               "num_inference_steps": 50,
+               }
     text_to_image_response = await call_api(API_KEY_TEXT2IMAGE, API_URL_TEXT2IMAGE, payload=payload)
-    
+
     if text_to_image_response.get('status') == 'COMPLETED':
         try:
             images = text_to_image_response.get('output').get('image_urls')
@@ -90,16 +101,18 @@ async def generate_image(data: Generate_image):
             settings.logger.info('Successfully generate image')
             return {"image_urls": results}
         except:
-            raise HTTPException(status_code=400, detail="Error server not image_url in response")
+            raise HTTPException(
+                status_code=400, detail="Error server not image_url in response")
     elif text_to_image_response.get('status') != 'COMPLETED':
-        raise HTTPException(status_code=400, detail="Error in generating image")
+        raise HTTPException(
+            status_code=400, detail="Error in generating image")
 
-from pydantic import BaseModel
+
 class ImageUploadRequest(BaseModel):
     images: list[str]
 
-import shutil
-@router.post('/upload_image_base64',status_code=status.HTTP_200_OK)
+
+@router.post('/upload_image_base64', status_code=status.HTTP_200_OK)
 async def upload_images(images: list[UploadFile] = File(...)):
     settings.logger.info('Start uploading images')
 
@@ -113,6 +126,7 @@ async def upload_images(images: list[UploadFile] = File(...)):
 
         settings.logger.info('Successfully uploaded images')
     except Exception as e:
-        raise HTTPException(status_code=400, detail=f"Error in uploading images: {str(e)}")
+        raise HTTPException(
+            status_code=400, detail=f"Error in uploading images: {str(e)}")
 
     return {"image_urls": image_urls}

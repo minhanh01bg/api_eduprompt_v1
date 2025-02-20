@@ -183,3 +183,105 @@
 2025-02-17 17:43:20,139 - INFO - Successfully generate image
 2025-02-17 17:43:38,093 - INFO - Start generating image
 2025-02-17 17:44:17,301 - INFO - Successfully generate image
+2025-02-18 09:08:50,172 - INFO - Start generating image
+2025-02-18 09:11:07,600 - INFO - Start generating image
+2025-02-18 10:26:41,303 - INFO - Start generating prompt: level='Intermediate' theme='Historical' mood='Energetic' characters='Fantasy characters' context='Outdoor' art_medium='Pencil Drawing' color_scheme='Dark' shot_type='' actions_details='' negative_prompt=''
+2025-02-18 10:26:45,789 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 10:27:19,965 - INFO - Start generating prompt: level='Intermediate' theme='Storytelling' mood='Peaceful' characters='Humans' context='Outdoor' art_medium='Pencil Drawing' color_scheme='Dark' shot_type='Close-up' actions_details='' negative_prompt=''
+2025-02-18 10:27:21,345 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 10:27:35,973 - INFO - Start generating prompt: level='Intermediate' theme='Historical' mood='Energetic' characters='None' context='Outdoor' art_medium='Pencil Drawing' color_scheme='' shot_type='' actions_details='' negative_prompt=''
+2025-02-18 10:27:38,945 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 10:28:50,468 - INFO - Start generating prompt: level='Advanced' theme='Nature' mood='Hope' characters='Animals' context='Indoor' art_medium='Graffiti' color_scheme='' shot_type='Close-up' actions_details='' negative_prompt=''
+2025-02-18 10:28:56,942 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 10:29:18,421 - INFO - Start generating prompt: level='Intermediate' theme='Everyday life' mood='Energetic' characters='' context='Outdoor' art_medium='' color_scheme='Vibrant' shot_type='' actions_details='' negative_prompt=''
+2025-02-18 10:29:20,263 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 10:29:54,631 - INFO - Start generating prompt: level='Intermediate' theme='Historical' mood='Joyful' characters='Fantasy characters' context='Outdoor' art_medium='' color_scheme='' shot_type='' actions_details='' negative_prompt=''
+2025-02-18 10:29:56,034 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 10:32:26,646 - INFO - Start generating image
+2025-02-18 10:33:17,404 - INFO - Successfully generate image
+2025-02-18 10:34:41,711 - INFO - Start generating prompt: level='Intermediate' theme='Fantasy and Magic' mood='Energetic' characters='Fantasy characters' context='Outdoor' art_medium='Pencil Drawing' color_scheme='Dark' shot_type='Close-up' actions_details='' negative_prompt=''
+2025-02-18 10:34:43,731 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 10:34:51,119 - INFO - Start generating image
+2025-02-18 10:35:34,897 - INFO - Successfully generate image
+2025-02-18 10:37:00,823 - INFO - Start generating prompt: level='Intermediate' theme='Historical' mood='Energetic' characters='Fantasy characters' context='Outdoor' art_medium='Pencil Drawing' color_scheme='Dark' shot_type='' actions_details='' negative_prompt=''
+2025-02-18 10:37:02,357 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 10:37:07,859 - INFO - Start generating image
+2025-02-18 10:38:00,068 - INFO - Successfully generate image
+2025-02-18 10:38:54,905 - INFO - Start generating prompt: level='Advanced' theme='Nature' mood='Peaceful' characters='Animals' context='At night' art_medium='Water Colors' color_scheme='Dark' shot_type='Energetic' actions_details='' negative_prompt=''
+2025-02-18 10:38:57,356 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 10:39:04,323 - INFO - Start generating image
+2025-02-18 10:39:46,503 - INFO - Successfully generate image
+2025-02-18 11:30:24,271 - INFO - Start generating prompt: level='Intermediate' theme='Historical' mood='Joyful' characters='Fantasy characters' context='Outdoor' art_medium='Pencil Drawing' color_scheme='Dark' shot_type='Hope' actions_details='' negative_prompt=''
+2025-02-18 11:30:28,679 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 11:30:37,240 - INFO - Start generating image
+2025-02-18 11:31:17,789 - INFO - Successfully generate image
+2025-02-18 11:41:27,090 - INFO - Start generating prompt: level='Intermediate' theme='Fantasy and Magic' mood='Energetic' characters='Fantasy characters' context='Outdoor' art_medium='Pencil Drawing' color_scheme='Pastel' shot_type='' actions_details='' negative_prompt=''
+2025-02-18 11:41:28,835 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 11:41:31,614 - INFO - Start generating image
+2025-02-18 11:42:14,054 - INFO - Successfully generate image
+2025-02-18 17:26:52,909 - INFO - Text to image
+2025-02-18 17:27:21,166 - INFO - Create text from image and text
+2025-02-18 17:27:55,103 - INFO - Successfully create text from image and text
+2025-02-18 17:27:55,103 - INFO - Create caption from student image
+2025-02-18 17:28:13,632 - INFO - Successfully create caption from student image
+2025-02-18 17:28:13,650 - INFO - Create caption from teacher image
+2025-02-18 17:28:17,782 - INFO - Successfully create caption from teacher image
+2025-02-18 17:28:17,782 - INFO - Scoring
+2025-02-18 17:28:18,886 - INFO - Successfully scoring
+2025-02-18 17:28:18,887 - INFO - Feedback
+2025-02-18 17:28:24,237 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 17:28:24,450 - INFO - Successfully feedback
+2025-02-19 08:38:30,162 - INFO - Text to image
+2025-02-19 08:38:57,630 - INFO - Create text from image and text
+2025-02-19 08:39:34,099 - INFO - Successfully create text from image and text
+2025-02-19 08:39:34,099 - INFO - Create caption from student image
+2025-02-19 08:39:53,143 - INFO - Successfully create caption from student image
+2025-02-19 08:39:53,167 - INFO - Create caption from teacher image
+2025-02-19 08:39:57,374 - INFO - Successfully create caption from teacher image
+2025-02-19 08:39:57,374 - INFO - Feedback
+2025-02-19 08:40:01,801 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-19 08:40:01,842 - INFO - Successfully feedback
+2025-02-19 09:13:45,601 - INFO - Start generating image
+2025-02-19 09:14:06,837 - INFO - Successfully generate image
+2025-02-19 09:19:36,195 - INFO - Start generating image
+2025-02-19 09:20:54,043 - INFO - Successfully generate image
+2025-02-19 09:24:43,535 - INFO - Text to image
+2025-02-19 09:25:05,201 - INFO - Create text from image and text
+2025-02-19 09:25:26,036 - INFO - Successfully create text from image and text
+2025-02-19 09:25:26,039 - INFO - Create text from image and text
+2025-02-19 09:25:39,716 - INFO - Successfully create text from image and text
+2025-02-19 09:25:39,716 - INFO - Feedback
+2025-02-19 09:25:48,062 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-19 09:25:48,143 - INFO - Successfully feedback
+2025-02-19 09:31:59,538 - INFO - Text to image
+2025-02-19 09:32:21,219 - INFO - Create text from image and text
+2025-02-19 09:32:40,641 - INFO - Successfully create text from image and text
+2025-02-19 09:32:40,651 - INFO - Create text from image and text
+2025-02-19 09:32:57,936 - INFO - Successfully create text from image and text
+2025-02-19 09:32:57,936 - INFO - Feedback
+2025-02-19 09:33:04,049 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-19 09:33:04,072 - INFO - Successfully feedback
+2025-02-19 09:36:04,516 - INFO - Text to image
+2025-02-19 09:36:26,061 - INFO - Create text from image and text
+2025-02-19 09:36:42,445 - INFO - Successfully create text from image and text
+2025-02-19 09:36:42,456 - INFO - Create text from image and text
+2025-02-19 09:36:52,382 - INFO - Successfully create text from image and text
+2025-02-19 09:36:52,383 - INFO - Feedback
+2025-02-19 09:36:57,493 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-19 09:36:57,497 - INFO - Successfully feedback
+2025-02-19 09:49:18,417 - INFO - Text to image
+2025-02-19 09:49:40,369 - INFO - Create text from image and text
+2025-02-19 09:49:51,878 - INFO - Successfully create text from image and text
+2025-02-19 09:49:51,883 - INFO - Create text from image and text
+2025-02-19 09:50:05,571 - INFO - Successfully create text from image and text
+2025-02-19 09:50:05,571 - INFO - Feedback
+2025-02-19 09:50:09,078 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-19 09:50:09,100 - INFO - Successfully feedback
+2025-02-19 14:29:47,147 - INFO - Start generating prompt: level='Intermediate' theme='Historical' mood='Hope' characters='Humans' context='Indoor' art_medium='Graffiti' color_scheme='Vibrant' shot_type='Energetic' actions_details='' negative_prompt=''
+2025-02-19 14:29:52,461 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-19 14:30:37,066 - INFO - Start generating prompt: level='Advanced' theme='Storytelling' mood='Hope' characters='' context='' art_medium='' color_scheme='' shot_type='' actions_details='' negative_prompt=''
+2025-02-19 14:30:39,514 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-19 14:31:20,224 - INFO - Start generating prompt: level='Intermediate' theme='Storytelling' mood='Energetic' characters='Humans' context='Outdoor' art_medium='Graffiti' color_scheme='Dark' shot_type='Energetic' actions_details='adsasd' negative_prompt='dassdad'
+2025-02-19 14:31:21,666 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-19 16:24:13,338 - INFO - Start generating prompt: level='Intermediate' theme='Historical' mood='Energetic' characters='Fantasy characters' context='' art_medium='' color_scheme='' shot_type='' actions_details='' negative_prompt=''
+2025-02-19 16:24:15,710 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"

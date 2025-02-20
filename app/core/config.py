@@ -38,4 +38,6 @@ class Settings:
     CAPTION_WEIGHT = 0.1
     PROMPT_CAPTION_WEIGHT = 0.1
     DOMAIN = 'https://epadmin.physcode.com'
+    DOMAIN = "http://192.168.1.21:7000"
+    
 settings = Settings()
