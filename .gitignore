@@ -1,3 +1,5 @@
 __pycache__
 app/media/*
 !app/media/.gitkeep
+test.json
+app.log
