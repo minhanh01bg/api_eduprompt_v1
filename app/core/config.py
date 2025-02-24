@@ -39,5 +39,20 @@ class Settings:
     PROMPT_CAPTION_WEIGHT = 0.1
     DOMAIN = 'https://epadmin.physcode.com'
     DOMAIN = "http://192.168.1.21:7000"
+
+    # vmhieu account
+    API_URL_ITT = 'https://api.runpod.ai/v2/h2zfmy7vokxl8x/runsync'
+    API_KEY_VMH = 'O461H84OAYQK5UG9K5C24AR7XHMDRDEFSXCW4B5T'
+
+    # hieuvm account
+    API_URL_ITC = 'https://api.runpod.ai/v2/iwupjthns1gw11/runsync'
+    API_URL_TEXT2IMAGE_SD3 = 'https://api.runpod.ai/v2/7wt9c65qtmm1uj/runsync'
+    API_URL_TEXT2IMAGE_DYNA = 'https://api.runpod.ai/v2/kmqs39hnzvowhd/runsync'
+    API_KEY_HIEUVM = 'rpa_7DWIWXV9FLMKPRA01519O44QW7Q0NKR2QYU7RULC12ygum'
+
+    # flux
+    API_URL_TEXT2IMAGE2 = 'https://api.runpod.ai/v2/pyrat8v5lumbfb/runsync'
+    API_KEY_TEXT2IMAGE2 = 'O461H84OAYQK5UG9K5C24AR7XHMDRDEFSXCW4B5T'
+
     
 settings = Settings()

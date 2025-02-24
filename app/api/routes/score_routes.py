@@ -11,43 +11,34 @@ from app.core.chat_openai import get_feedback
 from PIL import Image
 router = APIRouter()
 
-API_URL_ITT = 'https://api.runpod.ai/v2/h2zfmy7vokxl8x/runsync'
-API_KEY_VMH = 'O461H84OAYQK5UG9K5C24AR7XHMDRDEFSXCW4B5T'
-
-API_URL_ITC = 'https://api.runpod.ai/v2/iwupjthns1gw11/runsync'
-API_KEY_ITC = 'rpa_7DWIWXV9FLMKPRA01519O44QW7Q0NKR2QYU7RULC12ygum'
-
-API_URL_TEXT2IMAGE = 'https://api.runpod.ai/v2/7wt9c65qtmm1uj/runsync'
-API_KEY_TEXT2IMAGE = 'rpa_7DWIWXV9FLMKPRA01519O44QW7Q0NKR2QYU7RULC12ygum'
-
 
 async def image_text_2text(base64_image: str):
     settings.logger.info('Create text from image and text')
     payload_imgtext2img = {"prompt": settings.PROMPT_CONFIG_IMAGE_TEXT_2IMAGE,
                            "source": base64_image}
-    imgtxt2image_response = await call_api(API_KEY_VMH, API_URL_ITT, payload=payload_imgtext2img)
+    imgtxt2image_response = await call_api(settings.API_KEY_VMH, settings.API_URL_ITT, payload=payload_imgtext2img)
     output_it2txt = imgtxt2image_response.get('output')
     it2text = output_it2txt.get('text')
     it2text = extract_assistant_response(it2text)
     settings.logger.info('Successfully create text from image and text')
     return it2text
 
-
+# test
 async def generate_caption_from_image(base64_image: str, name: str):
     settings.logger.info(f'Create caption from {name} image')
-    img2caption_response = await call_api(API_KEY_ITC, API_URL_ITC, payload={"source": base64_image})
+    img2caption_response = await call_api(settings.API_KEY_HIEUVM, settings.API_URL_ITC, payload={"source": base64_image})
     output_img2caption = img2caption_response.get('output')
     embedding_caption = output_img2caption.get('embeddings')
     text = output_img2caption.get('text')
     settings.logger.info(f"Successfully create caption from {name} image")
     return embedding_caption, text
 
-
+# test
 async def embeddings_text(prompt: str):
-    embedding_reponse = await call_api(API_KEY_ITC, API_URL_ITC, payload={"prompt": prompt})
+    embedding_reponse = await call_api(settings.API_KEY_HIEUVM, settings.API_URL_ITC, payload={"prompt": prompt})
     return embedding_reponse.get('output').get('embeddings')
 
-
+# test
 async def scoring_similarity(teacher_prompt, student_prompt, teacher_image, base64_student_image):
     # image to caption
     try:
@@ -107,38 +98,23 @@ async def generate_score_feedback(
     teacher_prompt: str = Form(...),
     student_prompt: str = Form(...),
     teacher_image: UploadFile = File(...),
+    student_image: UploadFile = File(...),
 ):
-    # generate image for student
+    
+    settings.logger.info("Get caption from student image")
     try:
-        settings.logger.info('Text to image')
-        payload = {"prompt": student_prompt,
-                   "label": "student",
-                   "width": 1024,
-                   "height": 1024,
-                   "num_inference_steps": 50,
-                   }
-        text_to_image_response = await call_api(API_KEY_TEXT2IMAGE, API_URL_TEXT2IMAGE, payload=payload)
-        # print(api_response)
-    except:
-        raise HTTPException(status_code=400, detail={
-                            'message': "can't generate image on Runpod"})
-
-    # image + text to text
-
-    try:
-        output_t2img = text_to_image_response.get('output')
-        base64_student_image = output_t2img.get('image_url')
-        image_url = f"app/media/{random_filename(extension='png')}"
-        save_base64_image(base64_image=base64_student_image,
-                          image_url=image_url)
+        base64_student_image = await convert_to_base64(student_image)
+        # image_url = f"app/media/{random_filename(extension='png')}"
+        # save_base64_image(base64_image=base64_student_image,
+        #                   image_url=image_url)
 
         it2text_student = await image_text_2text(base64_image=base64_student_image)
     except:
         raise HTTPException(status_code=400, detail={
                             'message': "can't create text from student image and text on Runpod"})
 
+    settings.logger.info("Get caption from teacher image")
     try:
-        output_t2img = text_to_image_response.get('output')
         base64_teacher_image = await convert_to_base64(teacher_image)
         it2text_teacher = await image_text_2text(base64_image=base64_teacher_image)
     except:
@@ -184,7 +160,6 @@ async def generate_score_feedback(
         raise HTTPException(status_code=400, detail={
                             'message': "can't feedback"})
     return {
-        'student_image': settings.DOMAIN + '/' + image_url,
         'teacher_caption': it2text_teacher,
         'student_caption': it2text_student,
         'feedback': feedback

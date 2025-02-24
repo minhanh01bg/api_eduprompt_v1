@@ -12,26 +12,126 @@ from app.core.config import settings
 from app.core.utils import call_api
 from app.core.chat_openai import sent_message
 from app.core.utils import save_base64_image, random_filename
-
+import json
 
 router = APIRouter()
 
+prompt_text = """
+{
+  "3": {
+    "inputs": {
+      "seed": 432927437327497,
+      "steps": 20,
+      "cfg": 8.1,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "4": {
+    "inputs": {
+      "ckpt_name": "dynavisionXLAllInOneStylized_releaseV0610Bakedvae.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "Het meisje met de parel, Johannes Vermeer",
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "text, watermark",
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}
+"""
 
-# @router.get('/')
-# async def home(current_user: schemas.User = Security(check_auth_admin)):
-#     return {'message': '/home'}
 
-API_URL_ITT = 'https://api.runpod.ai/v2/h2zfmy7vokxl8x/runsync'
-API_KEY_VMH = 'O461H84OAYQK5UG9K5C24AR7XHMDRDEFSXCW4B5T'
-
-API_URL_ITC = 'https://api.runpod.ai/v2/iwupjthns1gw11/runsync'
-API_KEY_ITC = 'rpa_7DWIWXV9FLMKPRA01519O44QW7Q0NKR2QYU7RULC12ygum'
-
-API_URL_TEXT2IMAGE = 'https://api.runpod.ai/v2/7wt9c65qtmm1uj/runsync'
-API_KEY_TEXT2IMAGE = 'rpa_7DWIWXV9FLMKPRA01519O44QW7Q0NKR2QYU7RULC12ygum'
-
-API_URL_TEXT2IMAGE2 = 'https://api.runpod.ai/v2/pyrat8v5lumbfb/runsync'
-API_KEY_TEXT2IMAGE2 = 'O461H84OAYQK5UG9K5C24AR7XHMDRDEFSXCW4B5T'
+def get_prompt(prompt: str, number_image: int = 1):
+    data = json.loads(prompt_text)
+    data['6']['inputs']['text'] = prompt
+    data['5']['inputs']['batch_size'] = number_image
+    return data
 
 
 @router.post('/generate_prompt', status_code=status.HTTP_200_OK)
@@ -80,17 +180,18 @@ async def generate_prompt(data: Generate_prompt):
 @router.post('/generate_image', status_code=status.HTTP_200_OK)
 async def generate_image(data: Generate_image):
     settings.logger.info('Start generating image')
-    payload = {"prompt": data.prompt,
-               "label": "teacher",
-               "width": 1024,
-               "height": 1024,
-               "num_inference_steps": 50,
-               }
-    text_to_image_response = await call_api(API_KEY_TEXT2IMAGE, API_URL_TEXT2IMAGE, payload=payload)
+    prompt = data.prompt
+    number_image = data.number_image
+    payload_data = get_prompt(prompt,number_image=number_image)
+    payload = {
+        "prompt": payload_data,
+    }
+
+    text_to_image_response = await call_api(settings.API_KEY_HIEUVM, settings.API_URL_TEXT2IMAGE_DYNA, payload=payload)
 
     if text_to_image_response.get('status') == 'COMPLETED':
         try:
-            images = text_to_image_response.get('output').get('image_urls')
+            images = text_to_image_response.get('output').get('images')
             results = []
             for img in images:
                 file_name = random_filename(extension='png')
