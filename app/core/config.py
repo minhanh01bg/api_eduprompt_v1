@@ -38,7 +38,7 @@ class Settings:
     CAPTION_WEIGHT = 0.1
     PROMPT_CAPTION_WEIGHT = 0.1
     DOMAIN = 'https://epadmin.physcode.com'
-    DOMAIN = "http://192.168.1.21:7000"
+    # DOMAIN = "http://192.168.1.21:7000"
 
     # vmhieu account
     API_URL_ITT = 'https://api.runpod.ai/v2/h2zfmy7vokxl8x/runsync'
