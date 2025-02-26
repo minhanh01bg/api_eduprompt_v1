@@ -7,10 +7,10 @@ from app.core.security import check_auth_admin
 import base64
 import io
 from app.schemas.runpod_schemas import APIRequest, RequestBodyPrompt
-from app.schemas.prompt_schemas import Generate_prompt, Generate_image
+from app.schemas.prompt_schemas import Generate_prompt, Generate_image, Enhance_prompt
 from app.core.config import settings
 from app.core.utils import call_api
-from app.core.chat_openai import sent_message
+from app.core.chat_openai import sent_message, enhance_message
 from app.core.utils import save_base64_image, random_filename
 import json
 
@@ -231,3 +231,9 @@ async def upload_images(images: list[UploadFile] = File(...)):
             status_code=400, detail=f"Error in uploading images: {str(e)}")
 
     return {"image_urls": image_urls}
+
+@router.post('/enhance_prompt', status_code=status.HTTP_200_OK)
+async def enhance_prompt(data: Enhance_prompt):
+    prompt = data.prompt
+    enhance = enhance_message(prompt)
+    return enhance
