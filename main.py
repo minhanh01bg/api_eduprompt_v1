@@ -28,3 +28,12 @@ app.add_middleware(
 
 app.mount(settings.MEDIA_URL, StaticFiles(directory="app/media"), name="app/media")
 app.include_router(api_router, prefix=settings.ROUTER)
+
+from app.core.utils import init_session, close_session
+@app.on_event("startup")
+async def startup_event():
+    await init_session()
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    await close_session()

@@ -33,7 +33,8 @@ class Settings:
     )
     logger = logging.getLogger(__name__)
 
-    PROMPT_CONFIG_IMAGE_TEXT_2IMAGE = 'What color is in the background of the photo above? and what its content is? Please describe in detail the content of the photo, What is the main character in the photo?'
+    PROMPT_CONFIG_IMAGE_TEXT_2IMAGE = "Provide a detailed objects,colors,style,patterns of this image."
+    # 'What color is in the background of the photo above? and what its content is? Please describe in detail the content of the photo, What is the main character in the photo?'
     PROMPT_WEIGHT = 0.8
     CAPTION_WEIGHT = 0.1
     PROMPT_CAPTION_WEIGHT = 0.1

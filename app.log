@@ -326,3 +326,180 @@
 2025-02-26 12:05:35,094 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-02-26 12:07:12,162 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-02-26 12:07:32,115 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-27 15:08:03,850 - INFO - Create text from image and text
+2025-02-27 15:08:43,476 - INFO - Successfully create text from image and text
+2025-02-27 15:14:10,787 - INFO - Create text from image and text
+2025-02-27 15:14:34,466 - INFO - Successfully create text from image and text
+2025-02-27 15:15:52,845 - INFO - Create text from image and text
+2025-02-27 15:16:14,565 - INFO - Successfully create text from image and text
+2025-02-27 15:16:14,565 - INFO - Image to caption - excution time: 21.72
+2025-02-27 15:18:08,094 - INFO - Create text from image and text
+2025-02-27 15:18:29,397 - INFO - Successfully create text from image and text
+2025-02-27 15:18:29,397 - INFO - Image to caption - excution time: 21.30
+2025-02-27 15:18:57,192 - INFO - Create text from image and text
+2025-02-27 15:19:25,114 - INFO - Successfully create text from image and text
+2025-02-27 15:19:25,114 - INFO - Image to caption - excution time: 27.92
+2025-02-27 15:19:39,720 - INFO - Create text from image and text
+2025-02-27 15:20:17,939 - INFO - Successfully create text from image and text
+2025-02-27 15:20:17,939 - INFO - Image to caption - excution time: 38.22
+2025-02-27 15:26:20,762 - INFO - Create text from image and text
+2025-02-27 15:26:41,185 - INFO - Successfully create text from image and text
+2025-02-27 15:26:41,185 - INFO - Image to caption - excution time: 20.43
+2025-02-27 15:28:02,504 - INFO - Create text from image and text
+2025-02-27 15:28:27,491 - INFO - Successfully create text from image and text
+2025-02-27 15:28:27,491 - INFO - Image to caption - excution time: 24.99
+2025-02-27 15:30:22,041 - INFO - Create text from image and text
+2025-02-27 15:30:37,554 - INFO - Successfully create text from image and text
+2025-02-27 15:30:37,555 - INFO - Image to caption - excution time: 15.51
+2025-02-27 15:32:48,936 - INFO - Create text from image and text
+2025-02-27 15:33:01,574 - INFO - Successfully create text from image and text
+2025-02-27 15:33:01,574 - INFO - Image to caption - excution time: 12.64
+2025-02-27 15:33:30,879 - INFO - Create text from image and text
+2025-02-27 15:33:55,072 - INFO - Successfully create text from image and text
+2025-02-27 15:33:55,072 - INFO - Image to caption - excution time: 24.19
+2025-02-27 15:40:04,620 - INFO - Create text from image and text
+2025-02-27 15:40:37,236 - INFO - Successfully create text from image and text
+2025-02-27 15:40:37,237 - INFO - Image to caption - excution time: 32.62
+2025-02-27 15:42:14,008 - INFO - Create text from image and text
+2025-02-27 15:42:26,479 - INFO - Successfully create text from image and text
+2025-02-27 15:42:26,479 - INFO - Image to caption - excution time: 12.47
+2025-02-27 15:44:16,204 - INFO - Create text from image and text
+2025-02-27 15:44:31,947 - INFO - Successfully create text from image and text
+2025-02-27 15:44:31,947 - INFO - Image to caption - excution time: 15.74
+2025-02-27 15:44:36,901 - INFO - Create text from image and text
+2025-02-27 15:45:03,886 - INFO - Successfully create text from image and text
+2025-02-27 15:45:03,886 - INFO - Image to caption - excution time: 26.99
+2025-02-27 15:48:18,597 - INFO - Create text from image and text
+2025-02-27 15:49:12,039 - INFO - Create text from image and text
+2025-02-27 15:49:27,401 - INFO - Successfully create text from image and text
+2025-02-27 15:49:27,401 - INFO - Image to caption - excution time: 15.36
+2025-02-27 15:49:42,114 - INFO - Create text from image and text
+2025-02-27 15:49:56,569 - INFO - Successfully create text from image and text
+2025-02-27 15:49:56,569 - INFO - Image to caption - excution time: 14.46
+2025-02-27 15:50:03,905 - INFO - Create text from image and text
+2025-02-27 15:50:15,399 - INFO - Successfully create text from image and text
+2025-02-27 15:50:15,399 - INFO - Image to caption - excution time: 11.49
+2025-02-27 15:50:40,485 - INFO - Create text from image and text
+2025-02-27 15:50:55,864 - INFO - Successfully create text from image and text
+2025-02-27 15:50:55,864 - INFO - Image to caption - excution time: 15.38
+2025-02-27 15:53:59,799 - INFO - Start generating image
+2025-02-27 15:54:30,710 - INFO - Successfully generate image
+2025-02-27 15:54:30,711 - INFO - Generate image - excution time: 30.91
+2025-02-27 15:54:37,819 - INFO - Start generating image
+2025-02-27 15:54:43,622 - INFO - Successfully generate image
+2025-02-27 15:54:43,622 - INFO - Generate image - excution time: 5.80
+2025-02-27 16:07:13,192 - INFO - Start generating image
+2025-02-27 16:07:18,934 - INFO - Successfully generate image
+2025-02-27 16:07:18,934 - INFO - Generate image - excution time: 5.74
+2025-02-27 16:10:38,577 - INFO - Start generating image
+2025-02-27 16:10:46,145 - INFO - Successfully generate image
+2025-02-27 16:10:46,145 - INFO - Generate image - excution time: 7.57
+2025-02-27 16:11:15,829 - INFO - Start generating image
+2025-02-27 16:11:27,803 - INFO - Successfully generate image
+2025-02-27 16:11:27,803 - INFO - Generate image - excution time: 11.97
+2025-02-27 16:11:42,394 - INFO - Start generating image
+2025-02-27 16:11:48,717 - INFO - Successfully generate image
+2025-02-27 16:11:48,717 - INFO - Generate image - excution time: 6.32
+2025-02-27 16:11:55,877 - INFO - Start generating image
+2025-02-27 16:12:00,713 - INFO - Successfully generate image
+2025-02-27 16:12:00,713 - INFO - Generate image - excution time: 4.84
+2025-02-27 16:12:10,109 - INFO - Start generating image
+2025-02-27 16:12:15,238 - INFO - Successfully generate image
+2025-02-27 16:12:15,238 - INFO - Generate image - excution time: 5.13
+2025-02-27 16:12:17,971 - INFO - Start generating image
+2025-02-27 16:12:22,332 - INFO - Successfully generate image
+2025-02-27 16:12:22,333 - INFO - Generate image - excution time: 4.36
+2025-02-27 16:12:25,028 - INFO - Start generating image
+2025-02-27 16:12:28,451 - INFO - Successfully generate image
+2025-02-27 16:12:28,451 - INFO - Generate image - excution time: 3.42
+2025-02-27 16:12:30,770 - INFO - Start generating image
+2025-02-27 16:12:34,657 - INFO - Successfully generate image
+2025-02-27 16:12:34,657 - INFO - Generate image - excution time: 3.89
+2025-02-27 16:12:47,737 - INFO - Start generating image
+2025-02-27 16:12:52,511 - INFO - Successfully generate image
+2025-02-27 16:12:52,511 - INFO - Generate image - excution time: 4.77
+2025-02-27 16:12:56,125 - INFO - Start generating image
+2025-02-27 16:13:00,685 - INFO - Successfully generate image
+2025-02-27 16:13:00,685 - INFO - Generate image - excution time: 4.56
+2025-02-27 16:13:03,249 - INFO - Start generating image
+2025-02-27 16:15:31,687 - INFO - Image to caption - excution time: 0.00
+2025-02-27 16:16:06,742 - INFO - Create text from image and text
+2025-02-27 16:16:20,367 - INFO - Image to caption - excution time: 13.63
+2025-02-27 16:17:17,454 - INFO - Create text from image and text
+2025-02-27 16:17:29,659 - INFO - Image to caption - excution time: 12.21
+2025-02-27 16:17:52,338 - INFO - Get caption from student image
+2025-02-27 16:17:52,340 - INFO - Create text from image and text
+2025-02-27 16:18:13,162 - INFO - Feedback
+2025-02-27 16:18:16,712 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-27 16:18:16,743 - INFO - Successfully feedback
+2025-02-27 16:18:16,743 - INFO - Score and feedback - Excution time: 24.41
+2025-02-27 16:20:17,694 - INFO - Get caption from student image
+2025-02-27 16:20:17,695 - INFO - Create text from image and text
+2025-02-27 16:20:38,250 - INFO - Feedback
+2025-02-27 16:20:43,410 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-27 16:20:43,412 - INFO - Successfully feedback
+2025-02-27 16:20:43,412 - INFO - Score and feedback - Excution time: 25.72
+2025-02-27 16:26:23,259 - INFO - Get caption from student image
+2025-02-27 16:26:23,261 - INFO - Create text from image and text
+2025-02-27 16:26:41,100 - INFO - Feedback
+2025-02-27 16:26:44,946 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-27 16:26:44,955 - INFO - Successfully feedback
+2025-02-27 16:26:44,955 - INFO - Score and feedback - Excution time: 21.70
+2025-02-27 16:42:04,221 - INFO - Get caption from student image
+2025-02-27 16:42:04,223 - INFO - Create text from image and text
+2025-02-27 16:42:18,662 - INFO - Feedback
+2025-02-27 16:42:21,976 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-27 16:42:22,009 - INFO - Successfully feedback
+2025-02-27 16:42:22,009 - INFO - Score and feedback - Excution time: 17.79
+2025-02-27 16:45:11,818 - INFO - Get caption from student image
+2025-02-27 16:45:11,819 - INFO - Create text from image and text
+2025-02-27 16:45:32,070 - INFO - Feedback
+2025-02-27 16:45:34,919 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-27 16:45:34,928 - INFO - Successfully feedback
+2025-02-27 16:45:34,928 - INFO - Score and feedback - Excution time: 23.11
+2025-02-27 16:47:50,760 - INFO - Get caption from student image
+2025-02-27 16:47:50,762 - INFO - Create text from image and text
+2025-02-27 16:48:11,514 - INFO - Feedback
+2025-02-27 16:48:14,883 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-27 16:48:14,887 - INFO - Successfully feedback
+2025-02-27 16:48:14,887 - INFO - Score and feedback - Excution time: 24.13
+2025-02-27 16:49:20,698 - INFO - Get caption from student image
+2025-02-27 16:49:20,700 - INFO - Create text from image and text
+2025-02-27 16:49:40,992 - INFO - Feedback
+2025-02-27 16:49:44,055 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-27 16:49:44,083 - INFO - Successfully feedback
+2025-02-27 16:49:44,083 - INFO - Score and feedback - Excution time: 23.38
+2025-02-27 16:50:26,166 - INFO - Get caption from student image
+2025-02-27 16:50:26,168 - INFO - Create text from image and text
+2025-02-27 16:50:42,964 - INFO - Feedback
+2025-02-27 16:50:45,615 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-27 16:51:42,951 - INFO - Get caption from student image
+2025-02-27 16:51:42,953 - INFO - Create text from image and text
+2025-02-27 16:52:08,108 - INFO - Feedback
+2025-02-27 16:52:11,687 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-27 16:52:11,691 - INFO - Successfully feedback
+2025-02-27 16:52:11,692 - INFO - Score and feedback - Excution time: 28.74
+2025-02-27 16:58:25,171 - INFO - Get caption from student image
+2025-02-27 16:58:25,173 - INFO - Create text from image and text
+2025-02-27 16:58:39,688 - INFO - Feedback
+2025-02-27 16:58:42,557 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-27 16:58:42,578 - INFO - Successfully feedback
+2025-02-27 16:58:42,578 - INFO - Score and feedback - Excution time: 17.41
+2025-02-27 16:58:53,220 - INFO - Get caption from student image
+2025-02-27 16:58:53,222 - INFO - Create text from image and text
+2025-02-27 16:59:06,643 - INFO - Feedback
+2025-02-27 16:59:09,588 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-27 16:59:09,592 - INFO - Successfully feedback
+2025-02-27 16:59:09,592 - INFO - Score and feedback - Excution time: 16.37
+2025-02-27 16:59:27,794 - INFO - Get caption from student image
+2025-02-27 16:59:27,795 - INFO - Create text from image and text
+2025-02-27 16:59:48,487 - INFO - Feedback
+2025-02-27 16:59:51,548 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-27 16:59:51,552 - INFO - Successfully feedback
+2025-02-27 16:59:51,552 - INFO - Score and feedback - Excution time: 23.76
+2025-02-27 16:59:57,931 - INFO - Get caption from student image
+2025-02-27 16:59:57,932 - INFO - Create text from image and text
+2025-02-27 17:00:18,164 - INFO - Feedback
+2025-02-27 17:00:20,806 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-27 17:00:20,810 - INFO - Successfully feedback
+2025-02-27 17:00:20,810 - INFO - Score and feedback - Excution time: 22.88

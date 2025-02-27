@@ -6,22 +6,13 @@ import base64
 import io
 from pydantic import BaseModel
 from app.core.config import settings
-from app.core.utils import call_api, extract_assistant_response, cosine_similarity, save_base64_image, random_filename
+from app.core.utils import call_api,  cosine_similarity, image_text_2text, convert_to_base64
 from app.core.chat_openai import get_feedback
 from PIL import Image
+import time
+import re
+
 router = APIRouter()
-
-
-async def image_text_2text(base64_image: str):
-    settings.logger.info('Create text from image and text')
-    payload_imgtext2img = {"prompt": settings.PROMPT_CONFIG_IMAGE_TEXT_2IMAGE,
-                           "source": base64_image}
-    imgtxt2image_response = await call_api(settings.API_KEY_VMH, settings.API_URL_ITT, payload=payload_imgtext2img)
-    output_it2txt = imgtxt2image_response.get('output')
-    it2text = output_it2txt.get('text')
-    it2text = extract_assistant_response(it2text)
-    settings.logger.info('Successfully create text from image and text')
-    return it2text
 
 # test
 async def generate_caption_from_image(base64_image: str, name: str):
@@ -83,49 +74,23 @@ async def scoring_similarity(teacher_prompt, student_prompt, teacher_image, base
     return score
 
 
-async def convert_to_base64(file: UploadFile):
-    # Read the uploaded file as bytes
-    image_bytes = await file.read()
-
-    # Convert bytes to base64 string
-    base64_str = base64.b64encode(image_bytes).decode("utf-8")
-
-    return base64_str
-
 
 @router.post('/generate_score_feedback')
 async def generate_score_feedback(
+    teacher_caption: str = Form(...),
     teacher_prompt: str = Form(...),
     student_prompt: str = Form(...),
-    teacher_image: UploadFile = File(...),
+    # teacher_image: UploadFile = File(...),
     student_image: UploadFile = File(...),
 ):
-    
+    _start = time.time()
     settings.logger.info("Get caption from student image")
     try:
         base64_student_image = await convert_to_base64(student_image)
-        # image_url = f"app/media/{random_filename(extension='png')}"
-        # save_base64_image(base64_image=base64_student_image,
-        #                   image_url=image_url)
-
         it2text_student = await image_text_2text(base64_image=base64_student_image)
     except:
         raise HTTPException(status_code=400, detail={
                             'message': "can't create text from student image and text on Runpod"})
-
-    settings.logger.info("Get caption from teacher image")
-    try:
-        base64_teacher_image = await convert_to_base64(teacher_image)
-        it2text_teacher = await image_text_2text(base64_image=base64_teacher_image)
-    except:
-        raise HTTPException(status_code=400, detail={
-                            'message': "can't create text from teacher image and text on Runpod"})
-
-    # try:
-    #     score = scoring_similarity(teacher_prompt=teacher_prompt, student_prompt=student_prompt, teacher_image=teacher_image, base64_student_image=base64_student_image)
-    # except:
-    #     raise HTTPException(status_code=400, detail={
-    #                         'message': "can't score"})
 
     try:
         settings.logger.info("Feedback")
@@ -139,7 +104,7 @@ async def generate_score_feedback(
                            f"Student's Prompt: {student_prompt}\n\n"
                            #    f"Teacher's Image Caption: {teacher_caption}\n"
                            #    f"Student's Image Caption: {student_caption}\n"
-                           f"Teacher's Image Description: {it2text_teacher}\n\n"
+                           f"Teacher's Image Description: {teacher_caption}\n\n"
                            f"Student's Image Description: {it2text_student}\n\n"
                            f"Instruction:\n\n"
                            f"Identify missing or unclear details in the student's prompt compared to the teacher's prompt.\n"
@@ -155,12 +120,18 @@ async def generate_score_feedback(
                             "3. Composition: The first image has a whimsical, pattern-filled backdrop, while the second highlights a more realistic landscape; both include the sun, but their representations differ significantly.")
 
         feedback = get_feedback(prompt=prompt_feedback)
+        match = re.search(r"Score\s*=\s*(\d+)", feedback)
+        score = int(match.group(1))
         settings.logger.info("Successfully feedback")
     except:
         raise HTTPException(status_code=400, detail={
                             'message': "can't feedback"})
+    
+    _end = time.time() - _start
+    settings.logger.info(f'Score and feedback - Excution time: {_end:.2f}')
     return {
-        'teacher_caption': it2text_teacher,
         'student_caption': it2text_student,
-        'feedback': feedback
+        'score': score,
+        'feedback': feedback,
+        'excution_time': f'{_end:.2f}'
     }

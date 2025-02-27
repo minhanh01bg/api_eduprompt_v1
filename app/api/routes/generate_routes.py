@@ -4,8 +4,6 @@ import re
 from fastapi import APIRouter, Depends, Security, UploadFile, File, Form, HTTPException, status
 from app.schemas import schemas
 from app.core.security import check_auth_admin
-import base64
-import io
 from app.schemas.runpod_schemas import APIRequest, RequestBodyPrompt
 from app.schemas.prompt_schemas import Generate_prompt, Generate_image, Enhance_prompt
 from app.core.config import settings
@@ -13,7 +11,8 @@ from app.core.utils import call_api
 from app.core.chat_openai import sent_message, enhance_message
 from app.core.utils import save_base64_image, random_filename
 import json
-
+from app.core.utils import image_text_2text, convert_to_base64
+import time
 router = APIRouter()
 
 prompt_text = """
@@ -179,6 +178,7 @@ async def generate_prompt(data: Generate_prompt):
 
 @router.post('/generate_image', status_code=status.HTTP_200_OK)
 async def generate_image(data: Generate_image):
+    _start = time.time()
     settings.logger.info('Start generating image')
     prompt = data.prompt
     number_image = data.number_image
@@ -200,7 +200,9 @@ async def generate_image(data: Generate_image):
                 results.append(url)
 
             settings.logger.info('Successfully generate image')
-            return {"image_urls": results}
+            _end = time.time() - _start
+            settings.logger.info(f'Generate image - excution time: {_end:.2f}')
+            return {"image_urls": results, 'excution_time': f'{_end:.2f}s'}
         except:
             raise HTTPException(
                 status_code=400, detail="Error server not image_url in response")
@@ -208,32 +210,20 @@ async def generate_image(data: Generate_image):
         raise HTTPException(
             status_code=400, detail="Error in generating image")
 
-
-class ImageUploadRequest(BaseModel):
-    images: list[str]
-
-
-@router.post('/upload_image_base64', status_code=status.HTTP_200_OK)
-async def upload_images(images: list[UploadFile] = File(...)):
-    settings.logger.info('Start uploading images')
-
-    image_urls = []
-    try:
-        for image in images:
-            image_path = f"app/media/{random_filename(extension='png')}"
-            with open(image_path, "wb") as buffer:
-                shutil.copyfileobj(image.file, buffer)
-            image_urls.append(f"{settings.DOMAIN}/{image_path}")
-
-        settings.logger.info('Successfully uploaded images')
-    except Exception as e:
-        raise HTTPException(
-            status_code=400, detail=f"Error in uploading images: {str(e)}")
-
-    return {"image_urls": image_urls}
-
 @router.post('/enhance_prompt', status_code=status.HTTP_200_OK)
 async def enhance_prompt(data: Enhance_prompt):
     prompt = data.prompt
     enhance = enhance_message(prompt)
     return enhance
+
+
+@router.post('/image_to_caption')
+async def image_text_to_text(
+    image: UploadFile = File(...),
+):
+    base64_image = await convert_to_base64(file=image)
+    _start = time.time()
+    it2text = await image_text_2text(base64_image=base64_image)
+    _end = time.time() - _start
+    settings.logger.info(f'Image to caption - excution time: {_end:.2f}')
+    return {"caption": it2text, 'excution_time':f'{_end:.2f}'}
