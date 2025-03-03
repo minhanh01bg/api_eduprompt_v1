@@ -187,7 +187,7 @@ async def generate_image(data: Generate_image):
         "prompt": payload_data,
     }
 
-    text_to_image_response = await call_api(settings.API_KEY_HIEUVM, settings.API_URL_TEXT2IMAGE_DYNA, payload=payload)
+    text_to_image_response = await call_api(settings.API_KEY_EDUPROMPT, settings.API_URL_TEXT2IMAGE_DYNA, payload=payload)
 
     if text_to_image_response.get('status') == 'COMPLETED':
         try:

@@ -48,9 +48,12 @@ class Settings:
     # hieuvm account
     API_URL_ITC = 'https://api.runpod.ai/v2/iwupjthns1gw11/runsync'
     API_URL_TEXT2IMAGE_SD3 = 'https://api.runpod.ai/v2/7wt9c65qtmm1uj/runsync'
-    API_URL_TEXT2IMAGE_DYNA = 'https://api.runpod.ai/v2/kmqs39hnzvowhd/runsync'
+    # API_URL_TEXT2IMAGE_DYNA = 'https://api.runpod.ai/v2/kmqs39hnzvowhd/runsync'
     API_KEY_HIEUVM = 'rpa_7DWIWXV9FLMKPRA01519O44QW7Q0NKR2QYU7RULC12ygum'
 
+    # eduprompt key
+    API_URL_TEXT2IMAGE_DYNA = 'https://api.runpod.ai/v2/yy1rao0wwxtzxx/runsync'
+    API_KEY_EDUPROMPT = 'rpa_LTC1MPMCPLJQCL5YTA56ZWJYCG7LBX2TY2IL1K3Q1vgpdd'
     # flux
     API_URL_TEXT2IMAGE2 = 'https://api.runpod.ai/v2/pyrat8v5lumbfb/runsync'
     API_KEY_TEXT2IMAGE2 = 'O461H84OAYQK5UG9K5C24AR7XHMDRDEFSXCW4B5T'

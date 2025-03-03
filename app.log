@@ -503,3 +503,9 @@
 2025-02-27 17:00:20,806 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-02-27 17:00:20,810 - INFO - Successfully feedback
 2025-02-27 17:00:20,810 - INFO - Score and feedback - Excution time: 22.88
+2025-03-03 09:44:16,777 - INFO - Start generating image
+2025-03-03 09:44:47,564 - INFO - Successfully generate image
+2025-03-03 09:44:47,564 - INFO - Generate image - excution time: 30.79
+2025-03-03 09:45:22,364 - INFO - Start generating image
+2025-03-03 09:45:30,559 - INFO - Successfully generate image
+2025-03-03 09:45:30,559 - INFO - Generate image - excution time: 8.19

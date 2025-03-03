@@ -32,7 +32,7 @@ async def call_api(api_key, url, payload):
     global session
     if session is None:
         print("Init session")
-        await init_session()  # Đảm bảo session đã được khởi tạo
+        await init_session() 
 
     headers = {"Authorization": f"Bearer {api_key}",
                "Content-Type": "application/json"}
