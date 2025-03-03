@@ -173,7 +173,7 @@ async def generate_prompt(data: Generate_prompt):
     full_prompt = f"{ai_instruction}\n\nKeywords:\n{keywords}\n\nGenerate an example of a stable diffusion prompt based on these keywords."
 
     prompt = sent_message(full_prompt)
-    return prompt
+    return {"prompt": prompt}
 
 
 @router.post('/generate_image', status_code=status.HTTP_200_OK)
@@ -214,7 +214,7 @@ async def generate_image(data: Generate_image):
 async def enhance_prompt(data: Enhance_prompt):
     prompt = data.prompt
     enhance = enhance_message(prompt)
-    return enhance
+    return {"prompt": enhance}
 
 
 @router.post('/image_to_caption')
