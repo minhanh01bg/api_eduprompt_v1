@@ -1,6 +1,7 @@
 import re
 from fastapi import APIRouter, Depends, Security, UploadFile, File, Form, HTTPException
 from app.schemas import schemas
+from app.schemas.prompt_schemas import ScoreFeedbackFormat
 from app.core.security import check_auth_admin
 import base64
 import io
@@ -77,12 +78,16 @@ async def scoring_similarity(teacher_prompt, student_prompt, teacher_image, base
 
 @router.post('/generate_score_feedback')
 async def generate_score_feedback(
-    teacher_caption: str = Form(...),
-    teacher_prompt: str = Form(...),
-    student_prompt: str = Form(...),
-    # teacher_image: UploadFile = File(...),
-    student_image: str = Form(...),
+    # teacher_caption: str = Form(...),
+    # teacher_prompt: str = Form(...),
+    # student_prompt: str = Form(...),
+    # student_image: str = Form(...),
+    data: ScoreFeedbackFormat
 ):
+    teacher_caption = data.teacher_caption
+    teacher_prompt = data.teacher_prompt
+    student_prompt = data.student_prompt
+    student_image = data.student_image
     _start = time.time()
     settings.logger.info("Get caption from student image")
     try:

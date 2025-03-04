@@ -35,3 +35,9 @@ class Enhance_prompt(BaseModel):
 
 class Image2Caption(BaseModel):
     image: str
+
+class ScoreFeedbackFormat(BaseModel):
+    teacher_caption: str
+    teacher_prompt: str
+    student_prompt: str
+    student_image: str
