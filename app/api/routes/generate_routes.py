@@ -5,14 +5,16 @@ from fastapi import APIRouter, Depends, Security, UploadFile, File, Form, HTTPEx
 from app.schemas import schemas
 from app.core.security import check_auth_admin
 from app.schemas.runpod_schemas import APIRequest, RequestBodyPrompt
-from app.schemas.prompt_schemas import Generate_prompt, Generate_image, Enhance_prompt
+from app.schemas.prompt_schemas import Generate_prompt, Generate_image, Enhance_prompt, Image2Caption
 from app.core.config import settings
 from app.core.utils import call_api
 from app.core.chat_openai import sent_message, enhance_message
 from app.core.utils import save_base64_image, random_filename
 import json
-from app.core.utils import image_text_2text, convert_to_base64
+from app.core.utils import image_text_2text, convert_to_base64, pil_to_base64, get_url_image
 import time
+from PIL import Image
+
 router = APIRouter()
 
 prompt_text = """
@@ -216,12 +218,18 @@ async def enhance_prompt(data: Enhance_prompt):
     enhance = enhance_message(prompt)
     return {"prompt": enhance}
 
+from urllib.parse import urlparse
 
 @router.post('/image_to_caption')
 async def image_text_to_text(
-    image: UploadFile = File(...),
+    # image: UploadFile = File(...),
+    data: Image2Caption 
 ):
-    base64_image = await convert_to_base64(file=image)
+    # get url
+    image_url = data.image
+    image = get_url_image(image_url)
+    pil_image = Image.open(image)
+    base64_image = pil_to_base64(pil_image)
     _start = time.time()
     it2text = await image_text_2text(base64_image=base64_image)
     _end = time.time() - _start

@@ -509,3 +509,7 @@
 2025-03-03 09:45:22,364 - INFO - Start generating image
 2025-03-03 09:45:30,559 - INFO - Successfully generate image
 2025-03-03 09:45:30,559 - INFO - Generate image - excution time: 8.19
+2025-03-04 08:49:23,847 - INFO - Create text from image and text
+2025-03-04 08:50:00,620 - INFO - Image to caption - excution time: 36.77
+2025-03-04 08:56:16,557 - INFO - Create text from image and text
+2025-03-04 08:56:36,801 - INFO - Image to caption - excution time: 20.24

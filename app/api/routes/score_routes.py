@@ -6,7 +6,7 @@ import base64
 import io
 from pydantic import BaseModel
 from app.core.config import settings
-from app.core.utils import call_api,  cosine_similarity, image_text_2text, convert_to_base64
+from app.core.utils import call_api,  cosine_similarity, image_text_2text, convert_to_base64, pil_to_base64, get_url_image
 from app.core.chat_openai import get_feedback
 from PIL import Image
 import time
@@ -81,12 +81,14 @@ async def generate_score_feedback(
     teacher_prompt: str = Form(...),
     student_prompt: str = Form(...),
     # teacher_image: UploadFile = File(...),
-    student_image: UploadFile = File(...),
+    student_image: str = Form(...),
 ):
     _start = time.time()
     settings.logger.info("Get caption from student image")
     try:
-        base64_student_image = await convert_to_base64(student_image)
+        student_image_url = get_url_image(student_image)
+        student_pil_image = Image.open(student_image_url)
+        base64_student_image = pil_to_base64(student_pil_image)
         it2text_student = await image_text_2text(base64_image=base64_student_image)
     except:
         raise HTTPException(status_code=400, detail={

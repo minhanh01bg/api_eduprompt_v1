@@ -32,3 +32,6 @@ class Generate_image(BaseModel):
 
 class Enhance_prompt(BaseModel):
     prompt: str
+
+class Image2Caption(BaseModel):
+    image: str

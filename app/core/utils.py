@@ -94,3 +94,22 @@ async def convert_to_base64(file: UploadFile):
     base64_str = base64.b64encode(image_bytes).decode("utf-8")
 
     return base64_str
+
+def pil_to_base64(pil_img, format='PNG'):
+    buffered = io.BytesIO()
+    pil_img.save(buffered, format=format)
+    img_str = base64.b64encode(buffered.getvalue()).decode('utf-8')
+    return img_str
+
+from urllib.parse import urlparse
+
+def get_url_image(image_url: str):
+    """
+    :param image_url:
+    http://localhost:7000/app/media/example.png
+    return: app/media/example.png
+    """
+    image_ = urlparse(image_url)
+    image = image_.path
+    image = image[1:]
+    return image
