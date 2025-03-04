@@ -15,6 +15,14 @@ def add_token(db:Session, username: str, access_token: str,expired_at: datetime)
     db.refresh(db_token)
     return db_token
 
+def update_token(db:Session, username: str, access_token: str,expired_at: datetime):
+    db_token = db.query(models.Token).filter(models.Token.username == username).first()
+    db_token.access_token = access_token
+    db_token.expired_at = expired_at
+    db.commit()
+    db.refresh(db_token)
+    return db_token
+
 def get_token_by_user_id(db: Session, username: str):
     return db.query(models.Token).filter(models.Token.username == username).first()
 
