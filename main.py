@@ -9,9 +9,9 @@ from app import models
 from app.core.config import settings
 models.Base.metadata.create_all(bind=engine)
 
-from app.core.init_db import create_superuser
+from app.core.init_db import create_superuser, create_superuser_for_api
 create_superuser()
-
+create_superuser_for_api()
 app = FastAPI()
 
 from fastapi.middleware.cors import CORSMiddleware
